@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <!-- http://127.0.0.1:5500/index.html?email=&pw=&phone= -->
+      <div class="success">
+        <p>注册成功，你的信息如下</p>
+      </div>
+      <ul>
+        <li>邮箱地址： xxx@xxxxx</li>
+        <li>密码： 123456</li>
+        <li>手机号码： 13132115561</li>
+      </ul>
+      <script>
+         const li = document.querySelectorAll('li')
+         const query = window.location.search
+         const arr =  query.slice(1).split('&');
+         let email = arr[0].slice(6)
+         console.log(email,mima,phone);
+         let mima = arr[1].slice(3)
+         let phone = arr[2].slice(6)
+      </script>
+</body>
+</html>
