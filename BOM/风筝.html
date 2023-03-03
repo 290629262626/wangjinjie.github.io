@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body,
+        button,
+        p {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-size: 16px;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #accordion {
+            width: 80vw;
+
+        }
+
+        button {
+            background-color: beige;
+            width: 100%;
+            border: none;
+            padding: 10px 0;
+            text-align: left;
+            position: relative;
+        }
+
+        button::after {
+            content: "+";
+            position: absolute;
+            right: 10px;
+            top: 0px;
+            transform: translateY(50%);
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: #888;
+        }
+
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.8s;
+            font-size: 14px;
+            background-color: beige;
+
+        }
+
+        .content p {
+            padding: 0 20px;
+        }
+
+        .show::after {
+            content: '-';
+        }
+
+        .show+.content {
+            max-height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="accordion">
+        <div class="item">
+            <button>第一部分</button>
+            <div class="content">
+                <p> 只不过后来他认为萧绰对他指手画脚是在侮辱他作为家主跟男人的尊严，外加因为他私生子一事他跟萧绰闹了很大的别扭，所以这段时间他任何事情都没有听从萧绰的建议，结果却是办了几件大失水准的事情来。
+                    想到之前来的时候萧绰跟他说苏信会</p>
+                <p> 只不过后来他认为萧绰对他指手画脚是在侮辱他作为家主跟男人的尊严，外加因为他私生子一事他跟萧绰闹了很大的别扭，所以这段时间他任何事情都没有听从萧绰的建议，结果却是办了几件大失水准的事情来。
+                    想到之前来的时候萧绰跟他说苏信会</p>
+            </div>
+        </div>
+
+    </div>
+    <div id="accordion">
+        <div class="item">
+            <button>第二部分</button>
+            <div class="content">
+                <p> 只不过后来他认为萧绰对他指手画脚是在侮辱他作为家主跟男人的尊严，外加因为他私生子一事他跟萧绰闹了很大的别扭，所以这段时间他任何事情都没有听从萧绰的建议，结果却是办了几件大失水准的事情来。
+                    想到之前来的时候萧绰跟他说苏信会</p>
+
+            </div>
+        </div>
+
+    </div>
+    <div id="accordion">
+        <div class="item">
+            <button>第三部分</button>
+            <div class="content">
+                <p> 只不过为家主跟男人的尊严，外加因为他私生子一事，所以这段时间都没有听从萧绰的建议，结果却是办了几件大失水准的事情来。
+                    会</p>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+<script>
+    // 点击任意一个会展开
+    //展开的时候加号变成负号
+    //鼠标悬停的时候会添加一个灰色的背景色
+    //鼠标悬停的时候光标会变成手
+    //点击一下个展开，上一个会收缩
+    //
+
+    const btnArr = document.querySelectorAll('button')
+    let last = btnArr[0]
+
+    btnArr.forEach((btn) => {
+        btn.addEventListener('click', function () {
+            if (btn.classList.contains('show')) {
+                btn.classList.toggle('show')
+            } else {
+                last.classList.remove('show')
+                btn.classList.add('show')
+                last = btn
+            }
+
+        })
+    })
+</script>
+
+
+</html>

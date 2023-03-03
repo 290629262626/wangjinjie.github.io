@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    form {
+      width: 500px;
+      border: 1px solid #ccc;
+    }
+
+    textarea {
+      width: 100%;
+    }
+
+    .panel {
+      display: flex;
+      justify-content: space-around;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="">
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <div class="panel">
+      <span>0</span>
+      <button>发送</button>
+    </div>
+  </form>
+
+</body>
+   <script>
+    const text = document.querySelector('textarea')
+    const span = document.querySelector('span')
+      let len = 0
+      let a = true
+      let n = 0
+      text.addEventListener('compositionstart',function(){
+          a = false
+      })
+      text.addEventListener('compositionend',function(){
+         a = true
+         if(text.value.length >  5 ){
+          span.innerHTML = --n
+          span.style.color = 'red'    
+     } else{
+         span.style.color = '#000'
+     }
+      })
+    text.addEventListener('input',function(){
+      if(a){
+         len = text.value.length
+          span.innerHTML = len
+      }
+      if(text.value.length >  5 ){
+          span.style.color = 'red'
+          
+     }
+    })
+    
+   </script>
+
+</html>
