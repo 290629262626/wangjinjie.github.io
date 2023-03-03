@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body,
+        button,
+        p {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-size: 16px;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+      
+
+        button {
+            background-color: aqua;
+            width: 200px;
+            border: none;
+            padding: 10px 0;
+            text-align: left;
+            position: relative;
+            display: flex;
+           
+        }
+
+       
+        button:hover {
+            cursor: pointer;
+            background-color: yellow;
+     
+        }
+
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.8s;
+            font-size: 14px;
+            background-color: aqua;
+
+        }
+        p{
+             position: relative;
+             left: 15px;
+        }
+       
+       
+
+        .show+.content {
+            max-height: 200px;
+        }
+        .row{
+            background-color: beige;
+            width: 200px;
+            border: none;
+            padding: 10px 0;
+            text-align: left;
+            position: relative;
+            flex-wrap: wrap;
+       
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="accordion">
+        <div class="item">
+            <button><p>我的好友</p></button>
+            <div class="content">
+              <div class="row">1</div>
+              <div class="row">1</div>
+              <div class="row">1</div>
+            </div>
+        </div>
+
+    </div>
+    <div id="accordion">
+        <div class="item">
+            <button><p>企业好友</p></button>
+            <div class="content">
+              <div class="row">1</div>
+              <div class="row">1</div>
+              <div class="row">1</div>
+              <div class="row">1</div>
+              <div class="row">1</div>
+            </div>
+        </div>
+
+    </div>
+    <div id="accordion">
+        <div class="item">
+            <button><p>黑名单</p></button>
+            <div class="content">
+              <div class="row"></div>
+              <div class="row">1</div>
+              <div class="row">1</div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script>
+    // 点击任意一个会展开
+    //展开的时候加号变成负号
+    //鼠标悬停的时候会添加一个灰色的背景色
+    //鼠标悬停的时候光标会变成手
+    //点击一下个展开，上一个会收缩
+    //
+    //
+    const btnArr = document.querySelectorAll('button')
+    const divArr = document.querySelectorAll('.row')
+    let last = btnArr[0]
+
+    btnArr.forEach((btn) => {
+        btn.addEventListener('click', function () {
+            if (btn.classList.contains('show')) {
+                btn.classList.toggle('show')
+            } else {
+                last.classList.remove('show')
+                btn.classList.add('show')
+                last = btn
+            }
+
+        })
+    })
+       divArr.addEventListener('click',function(){
+         div.classList.add('to')
+       })
+   
+</script>
+
+
+</html>
